@@ -1,0 +1,13 @@
+services:
+  backend:
+    image: express-ts-starter-v1
+    volumes:
+      - .:/express-ts-starter/
+    ports:
+      - "5500:4500"
+    networks:
+      - auth-network
+
+networks:
+  auth-network:
+    driver: bridge
