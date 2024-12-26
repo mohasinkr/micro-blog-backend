@@ -1,8 +1,8 @@
 {
-  "name": "express-ts-starter-v1",
+  "name": "micro-blog-backend",
   "author": "Mohasin K.R",
   "version": "1.0.0",
-  "description": "Modern express starter template with typescript",
+  "description": "",
   "main": "index.ts",
   "license": "MIT",
   "type": "module",

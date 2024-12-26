@@ -1,12 +1,12 @@
 services:
   backend:
-    image: express-ts-starter-v1
+    image: mirco-blog-backend
     volumes:
-      - .:/express-ts-starter/
+      - .:/micro-blog-backend/
     ports:
       - "5500:4500"
     networks:
-      - auth-network
+      - blog-network
 
 networks:
   auth-network:

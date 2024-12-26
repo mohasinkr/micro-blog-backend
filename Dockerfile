@@ -1,6 +1,6 @@
 FROM node:slim
 
-WORKDIR /express-ts-starter
+WORKDIR /micro-blog-backend
 
 COPY package*.json /
 
