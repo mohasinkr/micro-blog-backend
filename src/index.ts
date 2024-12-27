@@ -1,5 +1,6 @@
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import dotenv from "dotenv";
 import express from "express";
 import { globalErrorHandler } from "./middleware/errorHandler.middleware.js";
 import { initMiddlewares } from "./middleware/index.js";
@@ -12,6 +13,8 @@ const HOST = process.env.HOST || "http://localhost";
 const PORT = Number.parseInt(process.env.PORT || "4500");
 
 const app = express();
+
+dotenv.config();
 
 // setup the common middlewares (logging,body parser, cors, rate limiter etc )
 initMiddlewares(app);
