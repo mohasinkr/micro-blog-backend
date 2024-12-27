@@ -9,7 +9,7 @@
   "scripts": {
     "build": "npm run clean && tsc && tsc-alias && npm run copy-files",
     "clean": "rm -rf ./build",
-    "copy-files": "cp -r ./src/views/ ./build/src/ && cp -r ./src/swagger-docs/ ./build/src/",
+    "copy-files": "cp -r ./src/views/ ./build/src/",
     "build:watch": "tsc -w -p tsconfig.json",
     "start": "node --env-file=.env build/src/index.js",
     "dev": "tsx watch --env-file=.env src/index.ts",
@@ -32,6 +32,7 @@
     "typescript": "^5.6.3"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.47.10",
     "@types/cors": "^2.8.17",
     "@types/js-yaml": "^4.0.9",
     "@types/jsonwebtoken": "^9.0.7",
@@ -44,14 +45,10 @@
     "express-session": "^1.18.1",
     "helmet": "^8.0.0",
     "i": "^0.3.7",
-    "js-yaml": "^4.1.0",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.8.1",
     "morgan": "^1.10.0",
     "nodemailer": "^6.9.16",
     "npm": "^10.9.2",
-    "pug": "^3.0.3",
-    "swagger-jsdoc": "^6.2.8",
-    "swagger-ui-express": "^5.0.1"
+    "pug": "^3.0.3"
   }
 }

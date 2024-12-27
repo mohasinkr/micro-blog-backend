@@ -1,12 +1,3 @@
-## Express backend boilerplate starter project
+## Micro-blog backend
 
-### Tech stack:
-- express
-- typescript
-- docker
-- express rate limiter
-- helmet
-- biome 
-- pug
-- vine
-- mongodb
+This is a simple backend for a micro-blogging application. It uses [Supabase](https://supabase.com/) for database management and [Vine](https://vine.co/) for social media integration.
