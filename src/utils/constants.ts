@@ -18,4 +18,13 @@ const ERROR_MESSAGES = {
 	OPERATION_NOT_ALLOWED: "The operation is not allowed.",
 };
 
-export { ERROR_CODES, ERROR_MESSAGES };
+const INFO_MESSAGES = {
+	USER_CREATED: "User created successfully.",
+	VERIFICATION_EMAIL_SENT: "A verification email has been sent to your email address. Please check your inbox for further instructions.",
+	PASSWORD_RESET: "Your password has been reset successfully. Please log in with your new password.",
+	PASSWORD_CHANGED: "Your password has been changed successfully.",
+	EMAIL_VERIFIED: "Your email address has been verified successfully.",
+	LOGIN_SUCCESS: "You have successfully logged in.",
+};
+
+export { ERROR_CODES, ERROR_MESSAGES, INFO_MESSAGES };
