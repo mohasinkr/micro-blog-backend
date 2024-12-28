@@ -1,7 +1,7 @@
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import dotenv from "dotenv";
-import express from "express";
+import express, { NextFunction, Request, Response } from "express";
 import { globalErrorHandler } from "./middleware/errorHandler.middleware.js";
 import { initMiddlewares } from "./middleware/index.js";
 import indexRouter from "./routes/index.routes.js";
@@ -27,8 +27,8 @@ app.get("/", (_, res: express.Response) => {
 	res.send(`Yep, the server is running🏃 on ${PORT}`);
 });
 
-app.get("/gen-error", () => {
-	throw Error("Unknown excpetion occured!");
+app.get("/gen-error", (_req: Request, _res: Response, next: NextFunction) => {
+	next(new Error("Unknown exception occured!"));
 });
 
 app.use("/api/v1", indexRouter);
@@ -46,7 +46,6 @@ app.get("/health-check", (_req, res, next) => {
 		timestamp: new Date().toISOString(),
 	};
 	res.send(healthcheck);
-	next();
 });
 
 app.use(globalErrorHandler);
