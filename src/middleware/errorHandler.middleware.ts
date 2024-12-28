@@ -1,5 +1,8 @@
 import type { Response, Request, NextFunction } from "express";
 import type CustomError from "@/errors/base.error.js";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 // Production error handler
 const handleProductionErrors = (err: CustomError, res: Response): void => {
@@ -33,11 +36,12 @@ const handleDevelopmentErrors = (err: CustomError, res: Response): void => {
 // Unified error handler middleware
 export const globalErrorHandler = (
 	err: CustomError,
-	req: Request,
+	_req: Request,
 	res: Response,
 	_next: NextFunction,
 ): void => {
-	const isDevelopment = process.env.NODE_ENV === "development";
+	const isDevelopment = process.env?.NODE_ENV === "development";
+	console.log("running the global error handler");
 	console.log(isDevelopment, "isDevelopment");
 
 	// Ensure defaults for unhandled errors
