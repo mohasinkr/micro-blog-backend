@@ -1,7 +1,7 @@
-import type { Request, Response, NextFunction } from "express";
-import vine from "@vinejs/vine";
 import AuthenticationError from "@/errors/authentication.error.js";
 import { ERROR_MESSAGES } from "@/utils/constants.js";
+import vine from "@vinejs/vine";
+import type { NextFunction, Request, Response } from "express";
 
 export const validateRequest =
 	(schema: ReturnType<typeof vine.object>) =>

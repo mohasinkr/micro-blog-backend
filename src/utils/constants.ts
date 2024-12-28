@@ -20,8 +20,10 @@ const ERROR_MESSAGES = {
 
 const INFO_MESSAGES = {
 	USER_CREATED: "User created successfully.",
-	VERIFICATION_EMAIL_SENT: "A verification email has been sent to your email address. Please check your inbox for further instructions.",
-	PASSWORD_RESET: "Your password has been reset successfully. Please log in with your new password.",
+	VERIFICATION_EMAIL_SENT:
+		"A verification email has been sent to your email address. Please check your inbox for further instructions.",
+	PASSWORD_RESET:
+		"Your password has been reset successfully. Please log in with your new password.",
 	PASSWORD_CHANGED: "Your password has been changed successfully.",
 	EMAIL_VERIFIED: "Your email address has been verified successfully.",
 	LOGIN_SUCCESS: "You have successfully logged in.",

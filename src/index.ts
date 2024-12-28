@@ -1,7 +1,11 @@
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import dotenv from "dotenv";
-import express, { NextFunction, Request, Response } from "express";
+import express, {
+	type NextFunction,
+	type Request,
+	type Response,
+} from "express";
 import { globalErrorHandler } from "./middleware/errorHandler.middleware.js";
 import { initMiddlewares } from "./middleware/index.js";
 import indexRouter from "./routes/index.routes.js";

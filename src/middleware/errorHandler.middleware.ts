@@ -1,6 +1,6 @@
-import type { Response, Request, NextFunction } from "express";
 import type CustomError from "@/errors/base.error.js";
 import dotenv from "dotenv";
+import type { NextFunction, Request, Response } from "express";
 
 dotenv.config();
 

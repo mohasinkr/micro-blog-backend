@@ -1,4 +1,7 @@
-import { loginController, signupController } from "@/controllers/auth.controller.js";
+import {
+	loginController,
+	signupController,
+} from "@/controllers/auth.controller.js";
 import { validateRequest } from "@/middleware/validation.middleware.js";
 import { loginSchema } from "@/validators/login.schema.js";
 import { signupSchema } from "@/validators/signup.schema.js";
