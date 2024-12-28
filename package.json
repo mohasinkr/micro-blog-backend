@@ -17,7 +17,7 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",
-		"@types/bun": "^1.1.14",
+		"@types/bun": "latest",
 		"@types/express": "^5.0.0",
 		"@types/express-rate-limit": "^6.0.2",
 		"@types/morgan": "^1.9.9",
