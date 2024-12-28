@@ -37,7 +37,7 @@ app.get("/gen-error", (_req: Request, _res: Response, next: NextFunction) => {
 
 app.use("/api/v1", indexRouter);
 
-app.get("/health-check", (_req, res, next) => {
+app.get("/health-check", (_req, res) => {
 	const uptimeInSeconds = process.uptime();
 	const uptimeInHours = Math.floor(uptimeInSeconds / 3600);
 	const uptimeInMinutes = Math.floor((uptimeInSeconds % 3600) / 60);

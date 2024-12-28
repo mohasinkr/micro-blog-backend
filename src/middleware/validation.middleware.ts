@@ -5,7 +5,7 @@ import type { NextFunction, Request, Response } from "express";
 
 export const validateRequest =
 	(schema: ReturnType<typeof vine.object>) =>
-	async (req: Request, res: Response, next: NextFunction) => {
+	async (req: Request, _res: Response, next: NextFunction) => {
 		try {
 			const compiledSchema = vine.compile(schema);
 

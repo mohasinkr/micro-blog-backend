@@ -5,7 +5,7 @@ const router = Router();
 
 router.use(authMiddleware);
 
-router.post("/", (_req, res) => {});
+router.post("/", (_req, _res) => {});
 
 router.get("/", (_req, res) => {
 	res.json("get posts endpoint");
