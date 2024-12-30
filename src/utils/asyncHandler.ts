@@ -1,6 +1,7 @@
-import type { NextFunction, Request, Response } from "express";
+import type { NextFunction, Response, Request } from "express";
 
-export const asyncHandler = <T extends Request>(
+// Generic asyncHandler that accepts any type that extends Request
+export const asyncHandler = <T>(
 	fn: (req: T, res: Response, next: NextFunction) => Promise<void>,
 ) => {
 	return (req: T, res: Response, next: NextFunction) => {

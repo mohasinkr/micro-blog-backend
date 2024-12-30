@@ -4,14 +4,12 @@ import {
 	readPosts,
 	updatePost,
 } from "@/services/posts.service";
-import type { RequestWithUser } from "@/types/request.types";
 import { asyncHandler } from "@/utils/asyncHandler";
 import { INFO_MESSAGES } from "@/utils/constants";
-import { supabase } from "@/utils/supabaseClient";
-import type { NextFunction, Response } from "express";
+import type { NextFunction, Response, Request } from "express";
 
 const createPostController = asyncHandler(
-	async (req: RequestWithUser, res: Response, _next: NextFunction) => {
+	async (req: Request, res: Response, _next: NextFunction) => {
 		const { content } = req.body;
 		// const { user } = req;
 
@@ -25,7 +23,7 @@ const createPostController = asyncHandler(
 );
 
 const listPostsController = asyncHandler(
-	async (_req: RequestWithUser, res: Response, _next: NextFunction) => {
+	async (_req: Request, res: Response, _next: NextFunction) => {
 		const posts = await readPosts();
 		res.status(200).json({
 			success: true,
@@ -36,7 +34,7 @@ const listPostsController = asyncHandler(
 );
 
 const deletePostController = asyncHandler(
-	async (req: RequestWithUser, res: Response, _next: NextFunction) => {
+	async (req: Request, res: Response, _next: NextFunction) => {
 		const { id } = req.params;
 		console.log(id, "id");
 		await deletePost(id);
@@ -49,7 +47,7 @@ const deletePostController = asyncHandler(
 );
 
 const editPostController = asyncHandler(
-	async (req: RequestWithUser, res: Response, _next: NextFunction) => {
+	async (req: Request, res: Response, _next: NextFunction) => {
 		const { id } = req.params;
 		const { content } = req.body;
 		const response = await updatePost(id, content);
