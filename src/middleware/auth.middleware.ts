@@ -1,4 +1,5 @@
 import AuthenticationError from "@/errors/authentication.error.js";
+import type { RequestWithUser } from "@/types/request.types";
 import { supabase } from "@/utils/supabaseClient.js";
 import type { NextFunction, Request, Response } from "express";
 
@@ -12,8 +13,8 @@ export const authMiddleware = async (
 	const {
 		data: { user },
 	} = await supabase.auth.getUser(token);
-	if (!user) {
-		next(new AuthenticationError("Invalid token"));
-	}
+	if (user) {
+		(req as RequestWithUser).user = user;
+	} else next(new AuthenticationError("Invalid token"));
 	next();
 };

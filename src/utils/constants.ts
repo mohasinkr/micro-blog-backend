@@ -27,6 +27,9 @@ const INFO_MESSAGES = {
 	PASSWORD_CHANGED: "Your password has been changed successfully.",
 	EMAIL_VERIFIED: "Your email address has been verified successfully.",
 	LOGIN_SUCCESS: "You have successfully logged in.",
+	POST_CREATED: "Post created successfully.",
+	POST_DELETED: "Post deleted successfully.",
+	POST_UPDATED: "Post updated successfully.",
 };
 
 export { ERROR_CODES, ERROR_MESSAGES, INFO_MESSAGES };

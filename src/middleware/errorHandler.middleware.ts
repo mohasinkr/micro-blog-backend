@@ -40,7 +40,7 @@ export const globalErrorHandler = (
 	res: Response,
 	_next: NextFunction,
 ): void => {
-	const isDevelopment = process.env?.NODE_ENV === "development";
+	const isDevelopment = process.env?.ENVIRONMENT === "development";
 	console.log("running the global error handler");
 	console.log(isDevelopment, "isDevelopment");
 

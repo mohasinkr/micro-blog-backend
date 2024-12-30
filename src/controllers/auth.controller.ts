@@ -1,14 +1,11 @@
 import AuthenticationError from "@/errors/authentication.error.js";
 import { createUser, loginUser } from "@/services/auth.service.js";
+import { asyncHandler } from "@/utils/asyncHandler";
 import { INFO_MESSAGES } from "@/utils/constants.js";
 import type { NextFunction, Request, Response } from "express";
 
-const signupController = async (
-	req: Request,
-	res: Response,
-	next: NextFunction,
-) => {
-	try {
+const signupController = asyncHandler(
+	async (req: Request, res: Response, next: NextFunction) => {
 		const { username, password, password_confirmation } = req.body;
 		if (password !== password_confirmation) {
 			throw new AuthenticationError("Passwords do not match", 400);
@@ -19,18 +16,11 @@ const signupController = async (
 			status: result.statusCode,
 			messages: INFO_MESSAGES.VERIFICATION_EMAIL_SENT,
 		});
-	} catch (error) {
-		next(error);
-		console.log(error);
-	}
-};
+	},
+);
 
-const loginController = async (
-	req: Request,
-	res: Response,
-	next: NextFunction,
-) => {
-	try {
+const loginController = asyncHandler(
+	async (req: Request, res: Response, next: NextFunction) => {
 		const { username, password } = req.body;
 		const { statusCode, response } = await loginUser(username, password);
 		res.status(statusCode).json({
@@ -42,10 +32,7 @@ const loginController = async (
 				user: response.user,
 			},
 		});
-	} catch (error) {
-		next(error);
-		console.log(error);
-	}
-};
+	},
+);
 
 export { signupController, loginController };
