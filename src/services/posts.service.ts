@@ -35,11 +35,10 @@ const updatePost = async (id: string, content: string) => {
 };
 
 const deletePost = async (id: string) => {
-	const response = await supabase.from("posts").delete().eq("id", id);
-	console.log(response, "response from deletePost");
-	// if (response.error) {
-	// 	throw new Error(error.message);
-	// }
+	const {error} = await supabase.from("posts").delete().eq("id", id);
+	if (error) {
+		throw new Error(error.message);
+	}
 };
 
 export { createPost, readPosts, deletePost, updatePost };

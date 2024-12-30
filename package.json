@@ -9,7 +9,7 @@
 	"scripts": {
 		"type-check": "tsc --noEmit",
 		"start": "bun run type-check && bun src/index.ts",
-		"dev": "bun --hot src/index.ts",
+		"dev": "bun --watch src/index.ts",
 		"biome:lint": "biome check",
 		"biome:format": "biome check --write",
 		"biome:fix-force": "biome check --fix --unsafe",
