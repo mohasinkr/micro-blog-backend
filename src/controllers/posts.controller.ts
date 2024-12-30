@@ -1,3 +1,4 @@
+import { likePost, unlikePost } from "@/services/likes.service";
 import {
 	createPost,
 	deletePost,
@@ -62,9 +63,34 @@ const editPostController = asyncHandler(
 	},
 );
 
+const likePostController = asyncHandler(
+	async (req: Request, res: Response, _next: NextFunction) => {
+		const { id } = req.params;
+		await likePost(id);
+		res.status(200).json({
+			success: true,
+			status: 200,
+		});
+		return;
+	},
+);
+
+const unlikePostController = asyncHandler(
+	async (req: Request, res: Response, _next: NextFunction) => {
+		const { id } = req.params;
+		await unlikePost(id);
+		res.status(200).json({
+			success: true,
+			status: 200,
+		});
+	},
+);
+
 export {
 	createPostController,
 	listPostsController,
 	editPostController,
 	deletePostController,
+	likePostController,
+	unlikePostController,
 };

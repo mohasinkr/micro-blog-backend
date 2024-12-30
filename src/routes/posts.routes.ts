@@ -2,7 +2,9 @@ import {
 	createPostController,
 	deletePostController,
 	editPostController,
+	likePostController,
 	listPostsController,
+	unlikePostController,
 } from "@/controllers/posts.controller";
 import { authMiddleware } from "@/middleware/auth.middleware.js";
 import { Router } from "express";
@@ -20,5 +22,9 @@ router.get("/:id", listPostsController);
 router.patch("/:id", editPostController);
 
 router.delete("/:id", deletePostController);
+
+router.post("/:id/like", likePostController);
+
+router.delete("/:id/like", unlikePostController);
 
 export default router;
