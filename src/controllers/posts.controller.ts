@@ -1,3 +1,4 @@
+import BadRequestError from "@/errors/badRequest.error";
 import { likePost, unlikePost } from "@/services/likes.service";
 import {
 	createPost,
@@ -6,14 +7,15 @@ import {
 	updatePost,
 } from "@/services/posts.service";
 import { asyncHandler } from "@/utils/asyncHandler";
-import { INFO_MESSAGES } from "@/utils/constants";
+import { ERROR_MESSAGES, INFO_MESSAGES } from "@/utils/constants";
 import type { NextFunction, Request, Response } from "express";
 
 const createPostController = asyncHandler(
 	async (req: Request, res: Response, _next: NextFunction) => {
 		const { content } = req.body;
-		// const { user } = req;
-
+		if (!content) {
+			throw new BadRequestError(ERROR_MESSAGES.POST_CONTENT_EMPTY);
+		}
 		await createPost(content);
 		res.status(201).json({
 			success: true,

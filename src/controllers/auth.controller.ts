@@ -14,7 +14,10 @@ const signupController = asyncHandler(
 		res.status(result.statusCode).json({
 			success: true,
 			status: result.statusCode,
-			messages: INFO_MESSAGES.VERIFICATION_EMAIL_SENT,
+			message: INFO_MESSAGES.VERIFICATION_EMAIL_SENT,
+			data: {
+				token: result.response.session?.access_token,
+			},
 		});
 	},
 );

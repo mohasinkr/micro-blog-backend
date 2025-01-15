@@ -12,5 +12,5 @@ export const initMiddlewares = (app: Application) => {
 	app.use(cors(corsOptions));
 	app.use(morgan("dev"));
 	app.use(helmet());
-	app.use(rateLimiter);
+	// app.use(rateLimiter);
 };

@@ -16,6 +16,7 @@ const ERROR_MESSAGES = {
 	INVALID_CREDENTIALS: "Invalid username or password.",
 	USER_EXISTS: "A user with this username already exists.",
 	OPERATION_NOT_ALLOWED: "The operation is not allowed.",
+	POST_CONTENT_EMPTY: "Post content cannot be empty.",
 };
 
 const INFO_MESSAGES = {
