@@ -35,7 +35,7 @@ const updatePost = async (id: string, content: string) => {
 };
 
 const deletePost = async (id: string) => {
-	const {error} = await supabase.from("posts").delete().eq("id", id);
+	const { error } = await supabase.from("posts").delete().eq("id", id);
 	if (error) {
 		throw new Error(error.message);
 	}

@@ -7,7 +7,7 @@ import {
 } from "@/services/posts.service";
 import { asyncHandler } from "@/utils/asyncHandler";
 import { INFO_MESSAGES } from "@/utils/constants";
-import type { NextFunction, Response, Request } from "express";
+import type { NextFunction, Request, Response } from "express";
 
 const createPostController = asyncHandler(
 	async (req: Request, res: Response, _next: NextFunction) => {

@@ -9,7 +9,6 @@ const likePost = async (postId: string) => {
 
 const unlikePost = async (postId: string) => {
 	const query = supabase.from("likes").delete().eq("post_id", postId);
-
 	const { data, error } = await query;
 
 	if (error) {
