@@ -1,17 +1,14 @@
-import path from "node:path";
-import { fileURLToPath } from "node:url";
 import dotenv from "dotenv";
 import express, {
 	type NextFunction,
 	type Request,
 	type Response,
 } from "express";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 import { globalErrorHandler } from "./middleware/errorHandler.middleware.js";
 import { initMiddlewares } from "./middleware/index.js";
 import indexRouter from "./routes/index.routes.js";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 const HOST = process.env.HOST || "http://localhost";
 const PORT = Number.parseInt(process.env.PORT || "4500");
@@ -22,10 +19,6 @@ dotenv.config();
 
 // setup the common middlewares (logging,body parser, cors, rate limiter etc )
 initMiddlewares(app);
-
-app.set("views", `${__dirname}/views`);
-
-app.set("view engine", "pug");
 
 app.get("/", (_, res: express.Response) => {
 	res.send(`Yep, the server is running🏃 on ${PORT}`);
