@@ -80,10 +80,12 @@ const likePostController = asyncHandler(
 const unlikePostController = asyncHandler(
 	async (req: Request, res: Response, _next: NextFunction) => {
 		const { id } = req.params;
+		console.log(id);
 		await unlikePost(id);
 		res.status(200).json({
 			success: true,
 			status: 200,
+			message: "Post unliked successfully.",
 		});
 	},
 );

@@ -17,6 +17,7 @@ const ERROR_MESSAGES = {
 	USER_EXISTS: "A user with this username already exists.",
 	OPERATION_NOT_ALLOWED: "The operation is not allowed.",
 	POST_CONTENT_EMPTY: "Post content cannot be empty.",
+	COMMENT_CONTENT_EMPTY: "Comment content cannot be empty.",
 };
 
 const INFO_MESSAGES = {
@@ -31,6 +32,9 @@ const INFO_MESSAGES = {
 	POST_CREATED: "Post created successfully.",
 	POST_DELETED: "Post deleted successfully.",
 	POST_UPDATED: "Post updated successfully.",
+	COMMENT_CREATED: "Comment created successfully.",
+	COMMENT_DELETED: "Comment deleted successfully.",
+	COMMENT_UPDATED: "Comment updated successfully.",
 };
 
 export { ERROR_CODES, ERROR_MESSAGES, INFO_MESSAGES };

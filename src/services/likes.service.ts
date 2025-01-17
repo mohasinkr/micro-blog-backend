@@ -8,8 +8,10 @@ const likePost = async (postId: string) => {
 };
 
 const unlikePost = async (postId: string) => {
-	const query = supabase.from("likes").delete().eq("post_id", postId);
-	const { data, error } = await query;
+	const { data, error } = await supabase
+		.from("likes")
+		.delete()
+		.eq("post_id", postId);
 
 	if (error) {
 		throw new Error(error.message);
