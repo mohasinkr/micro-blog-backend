@@ -1,3 +1,5 @@
+import upload from "@/config/multerConfig";
+import { singleFileUploadController } from "@/controllers/file.upload.controller";
 import {
 	createPostController,
 	deletePostController,
@@ -16,6 +18,8 @@ router.use(authMiddleware);
 router.post("/", createPostController);
 
 router.get("/", listPostsController);
+
+router.post("/assets", upload.single("file"), singleFileUploadController);
 
 router.get("/:id", listPostsController);
 

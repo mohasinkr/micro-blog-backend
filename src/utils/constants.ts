@@ -18,6 +18,7 @@ const ERROR_MESSAGES = {
 	OPERATION_NOT_ALLOWED: "The operation is not allowed.",
 	POST_CONTENT_EMPTY: "Post content cannot be empty.",
 	COMMENT_CONTENT_EMPTY: "Comment content cannot be empty.",
+	FILE_EMPTY: "File cannot be empty.",
 };
 
 const INFO_MESSAGES = {
@@ -35,6 +36,7 @@ const INFO_MESSAGES = {
 	COMMENT_CREATED: "Comment created successfully.",
 	COMMENT_DELETED: "Comment deleted successfully.",
 	COMMENT_UPDATED: "Comment updated successfully.",
+	FILE_UPLOADED: "File uploaded successfully.",
 };
 
 export { ERROR_CODES, ERROR_MESSAGES, INFO_MESSAGES };

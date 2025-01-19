@@ -4,6 +4,7 @@ import express from "express";
 import type { Application } from "express";
 import helmet from "helmet";
 import morgan from "morgan";
+import multer from "multer";
 import { rateLimiter } from "./rateLimiter.middleware.js";
 
 export const initMiddlewares = (app: Application) => {
