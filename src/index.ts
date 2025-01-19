@@ -4,8 +4,6 @@ import express, {
 	type Request,
 	type Response,
 } from "express";
-import path from "node:path";
-import { fileURLToPath } from "node:url";
 import { globalErrorHandler } from "./middleware/errorHandler.middleware.js";
 import { initMiddlewares } from "./middleware/index.js";
 import indexRouter from "./routes/index.routes.js";
