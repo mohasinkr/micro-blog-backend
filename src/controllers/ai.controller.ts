@@ -8,7 +8,7 @@ const generatePostController = asyncHandler(
 			"Generate a post in under 255 characters for my micro blogging platform.";
 
 		const response = await generatePost(prompt);
-        console.log(response);
+		console.log(response);
 		res.status(200).json({
 			success: true,
 			status: 200,

@@ -1,8 +1,8 @@
 import { Router } from "express";
+import aiRouter from "./ai.routes.js";
 import authRouter from "./auth.routes.js";
 import commentsRouter from "./comments.routes.js";
 import postsRouter from "./posts.routes.js";
-import aiRouter from "./ai.routes.js";
 
 const indexRouter = Router();
 
