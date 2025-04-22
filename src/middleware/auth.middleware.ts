@@ -22,9 +22,8 @@ export const authMiddleware = async (
 		if (user) {
 			req.user = user;
 			return next();
-		} else {
-			return next(new AuthenticationError("Invalid token"));
 		}
+		return next(new AuthenticationError("Invalid token"));
 	} catch (error) {
 		console.error("Auth middleware error:", error);
 		return next(new AuthenticationError("Authentication error"));
