@@ -4,10 +4,11 @@ services:
     volumes:
       - .:/micro-blog-backend/
     ports:
-      - "5500:4500"
+      - "5000:4500"
     networks:
       - blog-network
 
 networks:
-  auth-network:
+  blog-network:
     driver: bridge
+

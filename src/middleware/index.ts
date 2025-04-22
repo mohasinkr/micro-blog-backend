@@ -1,11 +1,10 @@
 import { corsOptions } from "@/config/corsOptions.js";
 import cors from "cors";
-import express from "express";
 import type { Application } from "express";
+import express from "express";
 import helmet from "helmet";
 import morgan from "morgan";
-import multer from "multer";
-import { rateLimiter } from "./rateLimiter.middleware.js";
+import { rateLimiter } from "./rateLimiter.middleware";
 
 export const initMiddlewares = (app: Application) => {
 	app.use(express.urlencoded({ extended: true }));
@@ -13,5 +12,5 @@ export const initMiddlewares = (app: Application) => {
 	app.use(cors(corsOptions));
 	app.use(morgan("dev"));
 	app.use(helmet());
-	// app.use(rateLimiter);
+	app.use(rateLimiter);
 };

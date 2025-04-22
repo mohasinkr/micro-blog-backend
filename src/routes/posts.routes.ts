@@ -5,6 +5,7 @@ import {
 	deletePostController,
 	editPostController,
 	likePostController,
+	listPostsByIdController,
 	listPostsController,
 	unlikePostController,
 } from "@/controllers/posts.controller";
@@ -21,7 +22,7 @@ router.get("/", listPostsController);
 
 router.post("/assets", upload.single("file"), singleFileUploadController);
 
-router.get("/:id", listPostsController);
+router.get("/:id", listPostsByIdController);
 
 router.patch("/:id", editPostController);
 

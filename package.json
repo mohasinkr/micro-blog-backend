@@ -10,9 +10,9 @@
 		"type-check": "tsc --noEmit",
 		"start": "bun run type-check && bun src/index.ts",
 		"dev": "bun --watch src/index.ts",
-		"biome:lint": "biome check",
-		"biome:format": "biome check --write",
-		"biome:fix-force": "biome check --fix --unsafe",
+		"lint": "biome check",
+		"format": "biome check --write",
+		"fix-force": "biome check --fix --unsafe",
 		"docker:dev": "sudo docker compose up"
 	},
 	"devDependencies": {

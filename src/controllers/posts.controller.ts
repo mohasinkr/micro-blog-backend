@@ -36,6 +36,18 @@ const listPostsController = asyncHandler(
 	},
 );
 
+const listPostsByIdController = asyncHandler(
+	async (_req: Request, res: Response, _next: NextFunction) => {
+		const { id: postId } = _req.params;
+		const posts = await readPosts(postId);
+		res.status(200).json({
+			success: true,
+			status: 200,
+			data: posts,
+		});
+	},
+);
+
 const deletePostController = asyncHandler(
 	async (req: Request, res: Response, _next: NextFunction) => {
 		const { id } = req.params;
@@ -93,6 +105,7 @@ const unlikePostController = asyncHandler(
 export {
 	createPostController,
 	listPostsController,
+	listPostsByIdController,
 	editPostController,
 	deletePostController,
 	likePostController,

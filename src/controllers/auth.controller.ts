@@ -1,11 +1,11 @@
-import AuthenticationError from "@/errors/authentication.error.js";
-import { createUser, loginUser } from "@/services/auth.service.js";
+import AuthenticationError from "@/errors/authentication.error";
+import { createUser, loginUser } from "@/services/auth.service";
 import { asyncHandler } from "@/utils/asyncHandler";
-import { INFO_MESSAGES } from "@/utils/constants.js";
+import { INFO_MESSAGES } from "@/utils/constants";
 import type { NextFunction, Request, Response } from "express";
 
 const signupController = asyncHandler(
-	async (req: Request, res: Response, next: NextFunction) => {
+	async (req: Request, res: Response, _next: NextFunction) => {
 		const { username, password, password_confirmation } = req.body;
 		if (password !== password_confirmation) {
 			throw new AuthenticationError("Passwords do not match", 400);
@@ -23,7 +23,7 @@ const signupController = asyncHandler(
 );
 
 const loginController = asyncHandler(
-	async (req: Request, res: Response, next: NextFunction) => {
+	async (req: Request, res: Response, _next: NextFunction) => {
 		const { username, password } = req.body;
 		const { statusCode, response } = await loginUser(username, password);
 		res.status(statusCode).json({

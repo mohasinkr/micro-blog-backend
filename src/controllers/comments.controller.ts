@@ -19,7 +19,7 @@ const createCommentController = asyncHandler(
 		if (!content) {
 			throw new BadRequestError(ERROR_MESSAGES.COMMENT_CONTENT_EMPTY);
 		}
-		const comment = await createComment(id, content);
+		await createComment(id, content);
 		res.json({
 			success: true,
 			status: 201,

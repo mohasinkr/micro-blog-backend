@@ -10,6 +10,6 @@ COPY . .
 
 ENV PORT=4500
 
-EXPOSE 4500
+EXPOSE $PORT
 
 CMD [ "npm", "run", "dev" ]

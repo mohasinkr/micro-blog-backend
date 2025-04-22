@@ -7,11 +7,11 @@ const createPost = async (content: string) => {
 	}
 };
 
-const readPosts = async (authorId?: string) => {
-	let query = supabase.from("posts").select("*");
+const readPosts = async (postId?: string) => {
+	let query = supabase.from("posts").select("*, likes(id, user_id)");
 
-	if (authorId) {
-		query = query.eq("author", authorId);
+	if (postId) {
+		query = query.eq("id", postId);
 	}
 
 	const { data, error } = await query;
