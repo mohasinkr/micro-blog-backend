@@ -109,6 +109,7 @@ http://localhost:4500/api/v1
 | POST   | /posts         | Create a new post          | Yes          |
 | PATCH  | /posts/:id     | Update a post              | Yes          |
 | DELETE | /posts/:id     | Delete a post              | Yes          |
+| GET    | /posts/:id/likes | Get likes for a post      | Yes          |
 | POST   | /posts/:id/like | Like a post               | Yes          |
 | DELETE | /posts/:id/like | Unlike a post             | Yes          |
 | POST   | /posts/assets  | Upload media for a post    | Yes          |
