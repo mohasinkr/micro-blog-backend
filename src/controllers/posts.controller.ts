@@ -1,5 +1,5 @@
 import BadRequestError from "@/errors/badRequest.error";
-import { likePost, unlikePost } from "@/services/likes.service";
+import { getLikes, likePost, unlikePost } from "@/services/likes.service";
 import {
 	createPost,
 	deletePost,
@@ -77,6 +77,18 @@ const editPostController = asyncHandler(
 	},
 );
 
+const getLikesController = asyncHandler(
+	async (req: Request, res: Response, _next: NextFunction) => {
+		const { id } = req.params;
+		const likes = await getLikes(id);
+		res.status(200).json({
+			success: true,
+			status: 200,
+			data: likes,
+		});
+	},
+);
+
 const likePostController = asyncHandler(
 	async (req: Request, res: Response, _next: NextFunction) => {
 		const { id } = req.params;
@@ -108,6 +120,7 @@ export {
 	listPostsByIdController,
 	editPostController,
 	deletePostController,
+	getLikesController,
 	likePostController,
 	unlikePostController,
 };

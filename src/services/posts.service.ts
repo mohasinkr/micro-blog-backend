@@ -8,7 +8,7 @@ const createPost = async (content: string, assets?: string[]) => {
 };
 
 const readPosts = async (postId?: string) => {
-	let query = supabase.from("posts").select("*, likes(id, user_id)");
+	let query = supabase.from("posts").select("*").order("created_at", { ascending: false });
 
 	if (postId) {
 		query = query.eq("id", postId);

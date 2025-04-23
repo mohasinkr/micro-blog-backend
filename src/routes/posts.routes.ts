@@ -4,6 +4,7 @@ import {
 	createPostController,
 	deletePostController,
 	editPostController,
+	getLikesController,
 	likePostController,
 	listPostsByIdController,
 	listPostsController,
@@ -27,6 +28,8 @@ router.get("/:id", listPostsByIdController);
 router.patch("/:id", editPostController);
 
 router.delete("/:id", deletePostController);
+
+router.get("/:id/likes", getLikesController);
 
 router.post("/:id/like", likePostController);
 

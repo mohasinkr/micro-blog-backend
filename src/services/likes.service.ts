@@ -2,6 +2,7 @@ import { supabase } from "@/utils/supabaseClient";
 
 const likePost = async (postId: string) => {
 	const { error } = await supabase.from("likes").insert({ post_id: postId });
+
 	const { error: incrementError } = await supabase.rpc("increment_like_count", {
 		row_id: postId,
 	});
@@ -28,4 +29,15 @@ const unlikePost = async (postId: string) => {
 	return data;
 };
 
-export { likePost, unlikePost };
+const getLikes = async (postId: string) => {
+	const { data, error } = await supabase
+		.from("likes")
+		.select("*")
+		.eq("post_id", postId);
+	if (error) {
+		throw new Error(error.message);
+	}
+	return data;
+};
+
+export { likePost, unlikePost, getLikes };
