@@ -19,6 +19,7 @@ const ERROR_MESSAGES = {
 	POST_CONTENT_EMPTY: "Post content cannot be empty.",
 	COMMENT_CONTENT_EMPTY: "Comment content cannot be empty.",
 	FILE_EMPTY: "File cannot be empty.",
+	FILE_UPLOAD_ERROR: "Error uploading file.",
 };
 
 const INFO_MESSAGES = {
