@@ -12,11 +12,11 @@ import type { NextFunction, Request, Response } from "express";
 
 const createPostController = asyncHandler(
 	async (req: Request, res: Response, _next: NextFunction) => {
-		const { content } = req.body;
+		const { content, assets } = req.body;
 		if (!content) {
 			throw new BadRequestError(ERROR_MESSAGES.POST_CONTENT_EMPTY);
 		}
-		await createPost(content);
+		await createPost(content, assets);
 		res.status(201).json({
 			success: true,
 			status: 201,

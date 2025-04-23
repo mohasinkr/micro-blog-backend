@@ -1,7 +1,7 @@
 import { supabase } from "@/utils/supabaseClient";
 
-const createPost = async (content: string) => {
-	const { error } = await supabase.from("posts").insert({ content });
+const createPost = async (content: string, assets?: string[]) => {
+	const { error } = await supabase.from("posts").insert({ content, assets });
 	if (error) {
 		throw new Error(error.message);
 	}

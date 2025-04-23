@@ -1,6 +1,6 @@
 import BadRequestError from "@/errors/badRequest.error";
 import FileUploadError from "@/errors/fileUpload.error";
-import { uploadFile } from "@/services/upload.service";
+import { getPublicUrl, uploadFile } from "@/services/upload.service";
 import { asyncHandler } from "@/utils/asyncHandler";
 import { ERROR_MESSAGES, INFO_MESSAGES } from "@/utils/constants";
 import type { Request, Response } from "express";
@@ -28,9 +28,13 @@ const fileUploadController = asyncHandler(
 			);
 		}
 
+		const getURLs = await Promise.all(
+			response.success.map((file) => getPublicUrl(file.filePath)),
+		);
+
 		res.status(200).json({
 			message: INFO_MESSAGES.FILE_UPLOADED,
-			data: response,
+			data: getURLs,
 		});
 	},
 );
