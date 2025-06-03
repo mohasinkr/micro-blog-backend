@@ -1,4 +1,4 @@
-FROM node:slim
+FROM node:23.3.0-alpine3.19
 
 WORKDIR /micro-blog-backend
 
