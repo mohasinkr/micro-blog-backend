@@ -34,7 +34,7 @@
 		"@vinejs/vine": "^2.1.0",
 		"cors": "^2.8.5",
 		"dotenv": "^16.4.7",
-		"express": "^4.21.1",
+		"express": "^4.22.0",
 		"express-rate-limit": "^7.4.1",
 		"express-session": "^1.18.1",
 		"groq-sdk": "^0.12.0",
